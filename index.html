@@ -1,99 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sypriyan | Official Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+  <title>Sypriyan | Official Artist Website</title>
 
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#111;
-color:white;
-text-align:center;
-}
+  <meta name="description"
+        content="Official website of Sypriyan, Tamil songwriter, lyricist and music creator based in Canada.">
 
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:
-linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.45)),
-url('ChatGPT Image Jul 12, 2026, 12_08_29 PM.png') center/cover no-repeat;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-h1{
-font-size:70px;
-margin:0;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #090909;
+      color: #ffffff;
+    }
 
-h2{
-font-weight:300;
-margin-top:10px;
-}
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    }
 
-p{
-width:70%;
-max-width:700px;
-line-height:1.8;
-}
+    .logo {
+      color: #d4af37;
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-decoration: none;
+    }
 
-.button{
-display:inline-block;
-padding:15px 35px;
-margin:10px;
-background:#1DB954;
-color:white;
-text-decoration:none;
-border-radius:40px;
-font-size:20px;
-}
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
 
-.section{
-padding:80px 20px;
-}
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
 
-img{
-max-width:320px;
-border-radius:20px;
-box-shadow:0 0 30px rgba(255,255,255,.2);
-}
+    .nav-links a:hover {
+      color: #d4af37;
+    }
 
-footer{
-padding:40px;
-background:#000;
-}
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.25)),
+        url('ChatGPT Image Jul 12, 2026, 12_08_29 PM.png')
+        center center / cover no-repeat;
+    }
 
-</style>
+    section {
+      padding: 90px 8%;
+    }
 
+    .section-title {
+      text-align: center;
+      color: #d4af37;
+      font-size: 36px;
+      margin: 0 0 18px;
+      letter-spacing: 2px;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      margin: 0 auto 45px;
+      text-align: center;
+      color: #bdbdbd;
+      line-height: 1.8;
+    }
+
+    .about {
+      background: #111111;
+    }
+
+    .about-text {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.9;
+      color: #dedede;
+    }
+
+    .music {
+      background:
+        linear-gradient(rgba(0,0,0,.91), rgba(0,0,0,.91)),
+        url('ChatGPT Image Jul 12, 2026, 12_08_29 PM.png')
+        center / cover fixed;
+    }
+
+    .album-card {
+      max-width: 850px;
+      margin: auto;
+      padding: 45px 30px;
+      text-align: center;
+      border: 1px solid rgba(212,175,55,.38);
+      border-radius: 20px;
+      background: rgba(15,15,15,.88);
+      box-shadow: 0 15px 45px rgba(0,0,0,.45);
+    }
+
+    .album-card h3 {
+      font-size: 30px;
+      margin: 0 0 10px;
+    }
+
+    .album-card p {
+      color: #bbbbbb;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      min-width: 170px;
+      padding: 14px 22px;
+      border-radius: 40px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      opacity: .9;
+    }
+
+    .spotify {
+      background: #1db954;
+    }
+
+    .apple {
+      background: #e94b70;
+    }
+
+    .youtube {
+      background: #ff0000;
+    }
+
+    .amazon {
+      background: #1677a5;
+    }
+
+    .videos {
+      background: #111111;
+      text-align: center;
+    }
+
+    .video-placeholder {
+      max-width: 850px;
+      min-height: 320px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      background: #050505;
+      border: 1px solid rgba(212,175,55,.3);
+      color: #aaa;
+      padding: 30px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #080808;
+    }
+
+    .contact a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #000;
+      color: #888;
+      border-top: 1px solid rgba(212,175,55,.2);
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .hero {
+        min-height: 65vh;
+        background-position: 32% center;
+      }
+
+      section {
+        padding: 70px 6%;
+      }
+
+      .section-title {
+        font-size: 29px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="hero" aria-label="Sypriyan official artist website hero banner"></div>
+  <nav>
+    <a class="logo" href="#home">SYPRIYAN</a>
 
-<div class="section">
+    <div class="nav-links">
+      <a href="#about">ABOUT</a>
+      <a href="#music">MUSIC</a>
+      <a href="#videos">VIDEOS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
 
-<h2>Latest Album</h2>
+  <header class="hero" id="home"></header>
 
-<p>
+  <section class="about" id="about">
+    <h2 class="section-title">About Sypriyan</h2>
 
-தொலைவானம் திறந்ததோ
+    <p class="section-subtitle">
+      Songwriter · Lyricist · Music Creator
+    </p>
 
-</p>
+    <div class="about-text">
+      Sypriyan is a Tamil independent songwriter, lyricist and music creator
+      based in Canada. Inspired by life experiences, memories and cinematic
+      storytelling, he creates original music that blends heartfelt lyrics,
+      melody and imagination.
+      <br><br>
+      Every song has a story. Every story has a soul.
+    </div>
+  </section>
 
-</div>
+  <section class="music" id="music">
+    <h2 class="section-title">Latest Release</h2>
 
-<footer>
+    <p class="section-subtitle">
+      Listen to Sypriyan’s debut Tamil album.
+    </p>
 
-© 2026 Sypriyan
+    <div class="album-card">
+      <h3>தொலைவானம் திறந்ததோ</h3>
 
-</footer>
+      <p>
+        Debut album · 8 original Tamil songs
+      </p>
+
+      <div class="buttons">
+        <a class="button spotify" href="#" target="_blank">
+          Spotify
+        </a>
+
+        <a class="button apple" href="#" target="_blank">
+          Apple Music
+        </a>
+
+        <a class="button amazon" href="#" target="_blank">
+          Amazon Music
+        </a>
+
+        <a class="button youtube" href="#" target="_blank">
+          YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="videos" id="videos">
+    <h2 class="section-title">Featured Videos</h2>
+
+    <p class="section-subtitle">
+      Music videos, lyric videos and cinematic stories from Letty Production.
+    </p>
+
+    <div class="video-placeholder">
+      Your featured YouTube video will be added here in the next step.
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Connect</h2>
+
+    <p class="section-subtitle">
+      Follow Sypriyan for music, videos and new releases.
+    </p>
+
+    <p>
+      Email:
+      <a href="mailto:jsypriyan@gmail.com">
+        jsypriyan@gmail.com
+      </a>
+    </p>
+
+    <p>
+      Instagram · Facebook · YouTube · Apple Music · Spotify
+    </p>
+  </section>
+
+  <footer>
+    © 2026 Sypriyan · Letty Production · All Rights Reserved
+  </footer>
 
 </body>
-
 </html>
