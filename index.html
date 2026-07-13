@@ -62,12 +62,12 @@
     }
 
     .hero {
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.25)),
-        url('ChatGPT Image Jul 12, 2026, 12_08_29 PM.png')
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.45)),
+        url('hero.png')
         center center / cover no-repeat;
-    }
+}
 
     section {
       padding: 90px 8%;
@@ -236,6 +236,51 @@
         font-size: 29px;
       }
     }
+    .hero{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    padding-right:10%;
+}
+
+.hero-content{
+    max-width:520px;
+    text-align:right;
+}
+
+.hero-content h1{
+    font-size:72px;
+    margin:0;
+    color:#fff;
+}
+
+.hero-content h2{
+    color:#d4af37;
+    font-weight:400;
+}
+
+.hero-content p{
+    line-height:1.8;
+    margin:30px 0;
+    color:#eee;
+}
+
+@media (max-width:760px){
+
+.hero{
+    justify-content:center;
+    padding:0 30px;
+}
+
+.hero-content{
+    text-align:center;
+}
+
+.hero-content h1{
+    font-size:52px;
+}
+
+}
   </style>
 </head>
 
@@ -252,7 +297,28 @@
     </div>
   </nav>
 
-  <header class="hero" id="home"></header>
+<header class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>SYPRIYAN</h1>
+
+<h2>Songwriter • Lyricist • Music Creator</h2>
+
+<p>
+Every song has a story.<br>
+Every story has a soul.
+</p>
+
+<a class="button spotify"
+href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt?si=3zcUYASTSVmxRxrV5rUWdg"
+target="_blank">
+Listen on Spotify
+</a>
+
+</div>
+
+</header>
 
   <section class="about" id="about">
     <h2 class="section-title">About Sypriyan</h2>
