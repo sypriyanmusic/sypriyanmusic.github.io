@@ -707,6 +707,70 @@ color:#ddd;
     margin-right: 18px;
     vertical-align: middle;
 }
+
+  .stats-section {
+  background: #090909;
+}
+
+.stats-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.stat-card {
+  padding: 32px 20px;
+  text-align: center;
+  border: 1px solid rgba(212,175,55,.32);
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(21,21,21,.98),
+    rgba(7,7,7,.98)
+  );
+  box-shadow: 0 16px 36px rgba(0,0,0,.35);
+}
+
+.stat-number,
+.stat-plus {
+  color: #d4af37;
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.stat-card p {
+  margin: 12px 0 0;
+  color: #d6d6d6;
+  line-height: 1.5;
+}
+
+.stats-footer {
+  margin-top: 38px;
+  text-align: center;
+  color: #bdbdbd;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number,
+  .stat-plus {
+    font-size: 38px;
+  }
+}
+  
+  
   </style>
 </head>
 
@@ -721,6 +785,7 @@ color:#ddd;
   <a href="#catalog">CATALOG</a>
   <a href="#videos">VIDEOS</a>
   <a href="#platforms">PLATFORMS</a>
+     <a href="#stats">STATS</a>
   <a href="#contact">CONTACT</a>
 </div>
   </nav>
@@ -1022,6 +1087,68 @@ color:#ddd;
   </div>
 
 </section>
+ <section class="stats-section" id="stats">
+
+  <h2 class="section-title">Sypriyan in Numbers</h2>
+
+  <p class="section-subtitle">
+    Real audience and platform milestones.
+  </p>
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <span class="stat-number" data-target="593">0</span>
+      <span class="stat-plus">+</span>
+      <p>Spotify Streams</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number" data-target="95">0</span>
+      <p>Spotify Listeners</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number" data-target="28">0</span>
+      <p>Monthly Active Listeners</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number" data-target="14">0</span>
+      <p>Spotify Followers</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number" data-target="65">0</span>
+      <p>Spotify Saves</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number" data-target="11">0</span>
+      <p>Playlist Adds</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number" data-target="239">0</span>
+      <span class="stat-plus">+</span>
+      <p>YouTube Subscribers</p>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-number" data-target="141">0</span>
+      <span class="stat-plus">+</span>
+      <p>Videos & Short Films</p>
+    </div>
+
+  </div>
+
+  <div class="stats-footer">
+    <p>Streaming on Spotify · Apple Music · Amazon Music · YouTube</p>
+    <p>Based in Surrey, British Columbia, Canada 🇨🇦</p>
+  </div>
+
+</section>
+  
   <section class="contact" id="contact">
     <h2 class="section-title">Connect</h2>
 
@@ -1076,6 +1203,42 @@ YouTube
   <footer>
     © 2026 Sypriyan · Letty Production · All Rights Reserved
   </footer>
+<script>
+  const counters = document.querySelectorAll('.stat-number');
 
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const target = Number(counter.dataset.target);
+      let current = 0;
+      const step = Math.max(1, Math.ceil(target / 60));
+
+      const updateCounter = () => {
+        current += step;
+
+        if (current >= target) {
+          counter.textContent = target;
+        } else {
+          counter.textContent = current;
+          requestAnimationFrame(updateCounter);
+        }
+      };
+
+      updateCounter();
+    });
+  };
+
+  const statsSection = document.querySelector('#stats');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        observer.unobserve(statsSection);
+      }
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(statsSection);
+</script>
 </body>
 </html>
