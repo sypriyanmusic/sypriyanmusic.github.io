@@ -598,6 +598,104 @@ color:#ddd;
     flex-direction: column;
   }
 }
+    .platforms {
+  background: #111111;
+}
+
+.platform-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.platform-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.10);
+  background: linear-gradient(
+    145deg,
+    rgba(22,22,22,.98),
+    rgba(8,8,8,.98)
+  );
+  box-shadow: 0 16px 40px rgba(0,0,0,.35);
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,.65);
+  box-shadow: 0 20px 45px rgba(0,0,0,.50);
+}
+
+.platform-icon {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 34px;
+  background: rgba(255,255,255,.07);
+}
+
+.platform-card h3 {
+  margin: 0 0 7px;
+  font-size: 25px;
+}
+
+.platform-card p {
+  margin: 0 0 12px;
+  color: #bdbdbd;
+  line-height: 1.5;
+}
+
+.platform-card span {
+  font-weight: bold;
+}
+
+.spotify-card span {
+  color: #1db954;
+}
+
+.apple-card span {
+  color: #ef5b83;
+}
+
+.amazon-card span {
+  color: #2aa4d6;
+}
+
+.youtube-card span {
+  color: #ff4a4a;
+}
+
+@media (max-width: 760px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .platform-card {
+    padding: 23px;
+  }
+
+  .platform-icon {
+    width: 60px;
+    height: 60px;
+    flex-basis: 60px;
+    font-size: 28px;
+  }
+}
   </style>
 </head>
 
@@ -611,6 +709,7 @@ color:#ddd;
   <a href="#music">MUSIC</a>
   <a href="#catalog">CATALOG</a>
   <a href="#videos">VIDEOS</a>
+  <a href="#platforms">PLATFORMS</a>
   <a href="#contact">CONTACT</a>
 </div>
   </nav>
@@ -830,6 +929,80 @@ color:#ddd;
     </div>
   </section>
 
+
+  <section class="platforms" id="platforms">
+
+  <h2 class="section-title">Available Everywhere</h2>
+
+  <p class="section-subtitle">
+    Listen to Sypriyan’s music on your favourite platform.
+  </p>
+
+  <div class="platform-grid">
+
+    <a class="platform-card spotify-card"
+       href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="platform-icon">🎵</div>
+
+      <div>
+        <h3>Spotify</h3>
+        <p>Listen to the debut album</p>
+        <span>Open Spotify →</span>
+      </div>
+
+    </a>
+
+    <a class="platform-card apple-card"
+       href="https://music.apple.com/us/artist/sypriyan/6771885525"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="platform-icon">🍎</div>
+
+      <div>
+        <h3>Apple Music</h3>
+        <p>Visit the official artist profile</p>
+        <span>Open Apple Music →</span>
+      </div>
+
+    </a>
+
+    <a class="platform-card amazon-card"
+       href="https://music.amazon.ca/albums/B0H2JV1ST3"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="platform-icon">🎧</div>
+
+      <div>
+        <h3>Amazon Music</h3>
+        <p>Stream the full album</p>
+        <span>Open Amazon Music →</span>
+      </div>
+
+    </a>
+
+    <a class="platform-card youtube-card"
+       href="https://youtube.com/@sypriyanj3293"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="platform-icon">▶️</div>
+
+      <div>
+        <h3>YouTube</h3>
+        <p>Watch music videos and short films</p>
+        <span>Open YouTube →</span>
+      </div>
+
+    </a>
+
+  </div>
+
+</section>
   <section class="contact" id="contact">
     <h2 class="section-title">Connect</h2>
 
