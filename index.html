@@ -645,8 +645,14 @@ color:#ddd;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-size: 34px;
+
   background: rgba(255,255,255,.07);
+}
+
+    .platform-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .platform-card h3 {
@@ -695,6 +701,13 @@ color:#ddd;
     flex-basis: 60px;
     font-size: 28px;
   }
+}
+.platform-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 18px;
+    vertical-align: middle;
 }
   </style>
 </head>
@@ -945,7 +958,9 @@ color:#ddd;
        target="_blank"
        rel="noopener noreferrer">
 
-      <div class="platform-icon">🎵</div>
+      <div class="platform-icon">
+    <img src="spotify.png" alt="Spotify">
+</div>
 
       <div>
         <h3>Spotify</h3>
@@ -960,7 +975,9 @@ color:#ddd;
        target="_blank"
        rel="noopener noreferrer">
 
-      <div class="platform-icon">🍎</div>
+      <div class="platform-icon">
+    <img src="apple.png" alt="Apple Music">
+</div>
 
       <div>
         <h3>Apple Music</h3>
@@ -975,7 +992,9 @@ color:#ddd;
        target="_blank"
        rel="noopener noreferrer">
 
-      <div class="platform-icon">🎧</div>
+    <div class="platform-icon">
+    <img src="amazon.png" alt="Amazon Music">
+</div>
 
       <div>
         <h3>Amazon Music</h3>
@@ -990,7 +1009,9 @@ color:#ddd;
        target="_blank"
        rel="noopener noreferrer">
 
-      <div class="platform-icon">▶️</div>
+     <div class="platform-icon">
+    <img src="youtube.png" alt="YouTube">
+</div>
 
       <div>
         <h3>YouTube</h3>
@@ -1023,28 +1044,32 @@ color:#ddd;
      href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
      target="_blank"
      rel="noopener noreferrer">
-    🎵 Spotify
+ <img src="spotify.png" class="platform-icon">
+Spotify
   </a>
 
   <a class="social-link"
      href="https://music.apple.com/us/artist/sypriyan/6771885525"
      target="_blank"
      rel="noopener noreferrer">
-    🍎 Apple Music
+    <img src="apple.png" class="platform-icon">
+Apple Music
   </a>
 
   <a class="social-link"
      href="https://music.amazon.ca/albums/B0H2JV1ST3"
      target="_blank"
      rel="noopener noreferrer">
-    🎧 Amazon Music
+    <img src="amazon.png" class="platform-icon">
+Amazon Music
   </a>
 
   <a class="social-link"
      href="https://youtube.com/@sypriyanj3293"
      target="_blank"
      rel="noopener noreferrer">
-    ▶️ YouTube
+  <img src="youtube.png" class="platform-icon">
+YouTube
   </a>
 
 </div>
