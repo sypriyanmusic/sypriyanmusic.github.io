@@ -109,17 +109,85 @@
         center / cover fixed;
     }
 
-    .album-card {
-      max-width: 850px;
-      margin: auto;
-      padding: 45px 30px;
-      text-align: center;
-      border: 1px solid rgba(212,175,55,.38);
-      border-radius: 20px;
-      background: rgba(15,15,15,.88);
-      box-shadow: 0 15px 45px rgba(0,0,0,.45);
-    }
+   .album-card {
+  max-width: 1050px;
+  margin: auto;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 45px;
+  align-items: center;
+  border: 1px solid rgba(212,175,55,.38);
+  border-radius: 22px;
+  background: rgba(15,15,15,.92);
+  box-shadow: 0 18px 50px rgba(0,0,0,.5);
+}
+.album-cover {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,.55);
+}
 
+.album-info {
+  text-align: left;
+}
+
+.album-label {
+  margin: 0 0 12px;
+  color: #d4af37 !important;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.album-info h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 36px;
+  line-height: 1.35;
+}
+
+.album-description {
+  margin: 0 0 20px;
+  color: #d4af37 !important;
+  font-size: 16px;
+}
+
+.album-copy {
+  margin-bottom: 28px;
+  color: #cfcfcf !important;
+  line-height: 1.8;
+}
+
+.album-info .buttons {
+  justify-content: flex-start;
+}
+
+@media (max-width: 760px) {
+  .album-card {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    gap: 28px;
+  }
+
+  .album-cover {
+    max-width: 320px;
+    margin: auto;
+  }
+
+  .album-info {
+    text-align: center;
+  }
+
+  .album-info h3 {
+    font-size: 29px;
+  }
+
+  .album-info .buttons {
+    justify-content: center;
+  }
+}
     .album-card h3 {
       font-size: 30px;
       margin: 0 0 10px;
@@ -493,41 +561,62 @@ color:#ddd;
     </p>
 
     <div class="album-card">
-      <h3>தொலைவானம் திறந்ததோ</h3>
 
-      <p>
-        Debut album · 8 original Tamil songs
-      </p>
+  <img
+    class="album-cover"
+    src="album-cover.png"
+    alt="தொலைவானம் திறந்ததோ album cover by Sypriyan">
 
-     <div class="buttons">
+  <div class="album-info">
 
-  <a class="button spotify"
-     href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
-     target="_blank"
-     rel="noopener noreferrer">
-    Spotify
-  </a>
+    <p class="album-label">
+      DEBUT ALBUM
+    </p>
 
-  <a class="button apple"
-     href="https://music.apple.com/us/artist/sypriyan/6771885525"
-     target="_blank"
-     rel="noopener noreferrer">
-    Apple Music
-  </a>
+    <h3>தொலைவானம் திறந்ததோ</h3>
 
-  <a class="button amazon"
-     href="https://music.amazon.ca/albums/B0H2JV1ST3"
-     target="_blank"
-     rel="noopener noreferrer">
-    Amazon Music
-  </a>
+    <p class="album-description">
+      8 original Tamil songs · Released in 2026
+    </p>
 
-  <a class="button youtube"
-     href="https://youtube.com/@sypriyanj3293?si=SNiFfQ2k_ZRNxmf4"
-     target="_blank"
-     rel="noopener noreferrer">
-    YouTube
-  </a>
+    <p class="album-copy">
+      A collection of original Tamil songs shaped by emotion, memory,
+      imagination and cinematic storytelling.
+    </p>
+
+    <div class="buttons">
+
+      <a class="button spotify"
+         href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
+         target="_blank"
+         rel="noopener noreferrer">
+        Spotify
+      </a>
+
+      <a class="button apple"
+         href="https://music.apple.com/us/artist/sypriyan/6771885525"
+         target="_blank"
+         rel="noopener noreferrer">
+        Apple Music
+      </a>
+
+      <a class="button amazon"
+         href="https://music.amazon.ca/albums/B0H2JV1ST3"
+         target="_blank"
+         rel="noopener noreferrer">
+        Amazon Music
+      </a>
+
+      <a class="button youtube"
+         href="https://youtube.com/@sypriyanj3293"
+         target="_blank"
+         rel="noopener noreferrer">
+        YouTube
+      </a>
+
+    </div>
+
+  </div>
 
 </div>
   </section>
