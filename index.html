@@ -485,6 +485,119 @@ border-radius:10px;
 line-height:1.8;
 color:#ddd;
 }
+  .catalog {
+  background: #0b0b0b;
+}
+
+.catalog-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.3fr .9fr;
+  gap: 30px;
+}
+
+.catalog-panel {
+  padding: 35px;
+  border: 1px solid rgba(212,175,55,.35);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(20,20,20,.98),
+    rgba(7,7,7,.98)
+  );
+  box-shadow: 0 18px 45px rgba(0,0,0,.42);
+}
+
+.catalog-panel h3 {
+  margin: 0 0 25px;
+  color: #d4af37;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.catalog-subheading {
+  margin-top: 35px !important;
+}
+
+.catalog-feature {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(212,175,55,.07);
+  border: 1px solid rgba(212,175,55,.22);
+}
+
+.catalog-icon {
+  font-size: 28px;
+}
+
+.catalog-feature h4 {
+  margin: 0 0 7px;
+  color: #fff;
+  font-size: 22px;
+}
+
+.catalog-feature p {
+  margin: 0 0 12px;
+  color: #aaa;
+}
+
+.catalog-feature a,
+.catalog-channel-link {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.catalog-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catalog-list li {
+  padding: 13px 0;
+  color: #e1e1e1;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  line-height: 1.5;
+}
+
+.catalog-list li::before {
+  content: "♪";
+  margin-right: 10px;
+  color: #d4af37;
+}
+
+.film-list li::before {
+  content: "🎬";
+}
+
+.more-item {
+  color: #d4af37 !important;
+  font-style: italic;
+}
+
+.catalog-channel-link {
+  display: inline-block;
+  margin-top: 28px;
+}
+
+@media (max-width: 760px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-panel {
+    padding: 25px 22px;
+  }
+
+  .catalog-feature {
+    flex-direction: column;
+  }
+}
   </style>
 </head>
 
@@ -493,12 +606,13 @@ color:#ddd;
   <nav>
     <a class="logo" href="#home">SYPRIYAN</a>
 
-    <div class="nav-links">
-      <a href="#about">ABOUT</a>
-      <a href="#music">MUSIC</a>
-      <a href="#videos">VIDEOS</a>
-      <a href="#contact">CONTACT</a>
-    </div>
+   <div class="nav-links">
+  <a href="#about">ABOUT</a>
+  <a href="#music">MUSIC</a>
+  <a href="#catalog">CATALOG</a>
+  <a href="#videos">VIDEOS</a>
+  <a href="#contact">CONTACT</a>
+</div>
   </nav>
 
 <header class="hero" id="home"></header>
@@ -620,6 +734,81 @@ color:#ddd;
 
 </div>
   </section>
+
+  <section class="catalog" id="catalog">
+
+  <h2 class="section-title">Music & Films</h2>
+
+  <p class="section-subtitle">
+    Original Tamil music and cinematic stories from Sypriyan and Letty Production.
+  </p>
+
+  <div class="catalog-grid">
+
+    <div class="catalog-panel">
+
+      <h3>Albums</h3>
+
+      <div class="catalog-feature">
+        <span class="catalog-icon">🟨</span>
+
+        <div>
+          <h4>தொலைவானம் திறந்ததோ</h4>
+          <p>Released May 18, 2026</p>
+
+          <a
+            href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
+            target="_blank"
+            rel="noopener noreferrer">
+            Listen →
+          </a>
+        </div>
+      </div>
+
+      <h3 class="catalog-subheading">Singles</h3>
+
+      <ul class="catalog-list">
+        <li>Daughter In-Law Goal-u</li>
+        <li>இதயம் கொண்ட ரோபோ</li>
+        <li>Hello My Dear Blue Tick</li>
+        <li>DHARMAN – SKY IS OURS</li>
+        <li>அழகே உன்னை ஆராதிக்கிறேன்</li>
+        <li>அப்பா என்ற ஆகாயம்</li>
+        <li>பனி மலையில் ஒரு பவனி</li>
+        <li>காதல் என்பது காற்றல்லவே</li>
+        <li>ஒரு பூவாய் மனதில் மலர்ந்தாய்</li>
+        <li>ஓடையம்பதியின் உத்தம இறைவா</li>
+        <li>நிமிர்ந்து நடந்தால் தலை தான் நண்பா</li>
+        <li class="more-item">And more...</li>
+      </ul>
+
+    </div>
+
+    <div class="catalog-panel">
+
+      <h3>Short Films</h3>
+
+      <ul class="catalog-list film-list">
+        <li>நிகழ்வு | Tamil Emotional Short Film</li>
+        <li>இருளின் நிறமோ வெண்மை</li>
+        <li>WITH LOVE, LIZZ</li>
+        <li>இறுகப்பற்று</li>
+        <li>PARTHIBAN'S DREAM</li>
+      </ul>
+
+      <a
+        class="catalog-channel-link"
+        href="https://youtube.com/@sypriyanj3293"
+        target="_blank"
+        rel="noopener noreferrer">
+        Watch on YouTube →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
   <section class="videos" id="videos">
     <h2 class="section-title">Featured Videos</h2>
