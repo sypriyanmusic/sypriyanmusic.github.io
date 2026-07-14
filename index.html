@@ -307,6 +307,107 @@
   transform: translateY(-3px);
   background: rgba(212, 175, 55, 0.15);
 }
+.artist-card {
+  max-width: 980px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 45px;
+  align-items: center;
+  padding: 40px;
+  border: 1px solid rgba(212,175,55,.35);
+  border-radius: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(24,24,24,.98),
+    rgba(8,8,8,.98)
+  );
+  box-shadow: 0 20px 55px rgba(0,0,0,.45);
+}
+
+.artist-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+  box-shadow: 0 0 30px rgba(212,175,55,.22);
+}
+
+.artist-info {
+  text-align: left;
+}
+
+.artist-info h3 {
+  margin: 0 0 8px;
+  color: #d4af37;
+  font-size: 42px;
+  letter-spacing: 4px;
+}
+
+.artist-role {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.artist-location {
+  margin-bottom: 24px;
+  color: #bdbdbd;
+}
+
+.artist-info p {
+  line-height: 1.8;
+  color: #d7d7d7;
+}
+
+.artist-quote {
+  margin-top: 22px;
+  color: #d4af37 !important;
+  font-style: italic;
+}
+
+.artist-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.artist-highlights span {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid rgba(212,175,55,.4);
+  background: rgba(212,175,55,.08);
+  color: #f0f0f0;
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .artist-card {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
+    text-align: center;
+  }
+
+  .artist-photo {
+    width: 220px;
+    margin: auto;
+  }
+
+  .artist-info {
+    text-align: center;
+  }
+
+  .artist-info h3 {
+    font-size: 34px;
+  }
+
+  .artist-highlights {
+    justify-content: center;
+  }
+}
   </style>
 </head>
 
@@ -326,22 +427,50 @@
 <header class="hero" id="home"></header>
 
   <section class="about" id="about">
-    <h2 class="section-title">About Sypriyan</h2>
 
-    <p class="section-subtitle">
-      Songwriter · Lyricist · Music Creator
-    </p>
+  <h2 class="section-title">About Sypriyan</h2>
 
-    <div class="about-text">
-      Sypriyan is a Tamil independent songwriter, lyricist and music creator
-      based in Canada. Inspired by life experiences, memories and cinematic
-      storytelling, he creates original music that blends heartfelt lyrics,
-      melody and imagination.
-      <br><br>
-      Every song has a story. Every story has a soul.
+  <div class="artist-card">
+
+    <img
+      class="artist-photo"
+      src="profile.png"
+      alt="Sypriyan, Tamil songwriter and lyricist">
+
+    <div class="artist-info">
+
+      <h3>SYPRIYAN</h3>
+
+      <p class="artist-role">
+        Songwriter · Lyricist · Music Creator
+      </p>
+
+      <p class="artist-location">
+        📍 Surrey, British Columbia, Canada
+      </p>
+
+      <p>
+        Sypriyan is a Tamil independent songwriter, lyricist and music creator
+        based in Canada. Inspired by life experiences, memories and cinematic
+        storytelling, he creates original music that blends heartfelt lyrics,
+        melody and imagination.
+      </p>
+
+      <p class="artist-quote">
+        “Every song has a story. Every story has a soul.”
+      </p>
+
+      <div class="artist-highlights">
+        <span>🎵 Original Tamil Music</span>
+        <span>✍️ Lyrics & Concepts</span>
+        <span>🎬 Letty Production</span>
+      </div>
+
     </div>
-  </section>
 
+  </div>
+
+</section>
   <section class="music" id="music">
     <h2 class="section-title">Latest Release</h2>
 
