@@ -281,6 +281,31 @@
 }
 
 }
+  .social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 30px;
+  color: #ffffff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  background: rgba(212, 175, 55, 0.15);
+}
   </style>
 </head>
 
@@ -389,9 +414,37 @@
       </a>
     </p>
 
-    <p>
-      Instagram · Facebook · YouTube · Apple Music · Spotify
-    </p>
+    <div class="social-links">
+
+  <a class="social-link"
+     href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
+     target="_blank"
+     rel="noopener noreferrer">
+    🎵 Spotify
+  </a>
+
+  <a class="social-link"
+     href="https://music.apple.com/us/artist/sypriyan/6771885525"
+     target="_blank"
+     rel="noopener noreferrer">
+    🍎 Apple Music
+  </a>
+
+  <a class="social-link"
+     href="https://music.amazon.ca/albums/B0H2JV1ST3"
+     target="_blank"
+     rel="noopener noreferrer">
+    🎧 Amazon Music
+  </a>
+
+  <a class="social-link"
+     href="https://youtube.com/@sypriyanj3293"
+     target="_blank"
+     rel="noopener noreferrer">
+    ▶️ YouTube
+  </a>
+
+</div>
   </section>
 
   <footer>
