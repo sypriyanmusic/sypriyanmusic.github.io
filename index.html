@@ -771,6 +771,124 @@ color:#ddd;
 }
   
   
+ .timeline-section {
+  background: #111111;
+}
+
+.timeline {
+  position: relative;
+  max-width: 950px;
+  margin: 55px auto 0;
+  padding-left: 44px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 11px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    #d4af37,
+    rgba(212,175,55,.15)
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 25px;
+  left: -42px;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #111111;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow: 0 0 18px rgba(212,175,55,.55);
+}
+
+.timeline-content {
+  padding: 28px 30px;
+  border: 1px solid rgba(212,175,55,.30);
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(22,22,22,.98),
+    rgba(7,7,7,.98)
+  );
+  box-shadow: 0 16px 38px rgba(0,0,0,.35);
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(7px);
+  border-color: rgba(212,175,55,.70);
+}
+
+.timeline-date {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #d4af37;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.timeline-content h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: #cfcfcf;
+  line-height: 1.8;
+}
+
+.timeline-content a {
+  display: inline-block;
+  margin-top: 16px;
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.timeline-future .timeline-marker {
+  background: #111111;
+  border-color: #d4af37;
+}
+
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 34px;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-marker {
+    left: -35px;
+    width: 17px;
+    height: 17px;
+  }
+
+  .timeline-content {
+    padding: 23px 21px;
+  }
+
+  .timeline-content h3 {
+    font-size: 21px;
+  }
+}
   </style>
 </head>
 
@@ -786,6 +904,7 @@ color:#ddd;
   <a href="#videos">VIDEOS</a>
   <a href="#platforms">PLATFORMS</a>
      <a href="#stats">STATS</a>
+     <a href="#timeline">TIMELINE</a>
   <a href="#contact">CONTACT</a>
 </div>
   </nav>
@@ -1148,7 +1267,98 @@ color:#ddd;
   </div>
 
 </section>
-  
+<section class="timeline-section" id="timeline">
+
+  <h2 class="section-title">My Creative Journey</h2>
+
+  <p class="section-subtitle">
+    Music, short films and milestones from Sypriyan and Letty Production.
+  </p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+
+      <div class="timeline-content">
+        <span class="timeline-date">May 18, 2026</span>
+        <h3>Debut Album Released</h3>
+        <p>
+          தொலைவானம் திறந்ததோ — Sypriyan’s debut album featuring
+          8 original Tamil songs.
+        </p>
+
+        <a href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
+           target="_blank"
+           rel="noopener noreferrer">
+          Listen to the album →
+        </a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+
+      <div class="timeline-content">
+        <span class="timeline-date">2026</span>
+        <h3>Original Singles</h3>
+        <p>
+          A growing collection of original Tamil songs including
+          Daughter In-Law Goal-u, இதயம் கொண்ட ரோபோ,
+          Hello My Dear Blue Tick and அழகே உன்னை ஆராதிக்கிறேன்.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+
+      <div class="timeline-content">
+        <span class="timeline-date">2026</span>
+        <h3>Short Films & Cinematic Stories</h3>
+        <p>
+          Letty Production released original short films including
+          நிகழ்வு, இறுகப்பற்று, இருளின் நிறமோ வெண்மை,
+          WITH LOVE, LIZZ and PARTHIBAN'S DREAM.
+        </p>
+
+        <a href="https://youtube.com/@sypriyanj3293"
+           target="_blank"
+           rel="noopener noreferrer">
+          Watch on YouTube →
+        </a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+
+      <div class="timeline-content">
+        <span class="timeline-date">July 2026</span>
+        <h3>Official Artist Website</h3>
+        <p>
+          Sypriyan.com was launched as the official home for music,
+          videos, short films and new creative projects.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-item timeline-future">
+      <div class="timeline-marker"></div>
+
+      <div class="timeline-content">
+        <span class="timeline-date">Coming Soon</span>
+        <h3>More Music. More Stories.</h3>
+        <p>
+          New singles, videos, albums and cinematic projects are
+          currently in development.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>  
   <section class="contact" id="contact">
     <h2 class="section-title">Connect</h2>
 
