@@ -827,7 +827,7 @@ color:#ddd;
 }
 
 .timeline-content:hover {
-  transform: translateX(7px);
+  transform: translateX(10px);
   border-color: rgba(212,175,55,.70);
 }
 
@@ -887,6 +887,42 @@ color:#ddd;
 
   .timeline-content h3 {
     font-size: 21px;
+  }
+}
+    .timeline-album-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.timeline-album-cover {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(212,175,55,.45);
+  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+}
+
+.timeline-album-info {
+  min-width: 0;
+}
+
+@media (max-width: 650px) {
+  .timeline-album-card {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-album-cover {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin: auto;
+  }
+
+  .timeline-album-info {
+    text-align: center;
   }
 }
   </style>
@@ -1280,20 +1316,35 @@ color:#ddd;
     <div class="timeline-item">
       <div class="timeline-marker"></div>
 
-      <div class="timeline-content">
-        <span class="timeline-date">May 18, 2026</span>
-        <h3>Debut Album Released</h3>
-        <p>
-          தொலைவானம் திறந்ததோ — Sypriyan’s debut album featuring
-          8 original Tamil songs.
-        </p>
+      <div class="timeline-content timeline-album-card">
 
-        <a href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
-           target="_blank"
-           rel="noopener noreferrer">
-          Listen to the album →
-        </a>
-      </div>
+  <img
+    class="timeline-album-cover"
+    src="album-cover.png"
+    alt="தொலைவானம் திறந்ததோ album cover">
+
+  <div class="timeline-album-info">
+
+    <span class="timeline-date">May 18, 2026</span>
+
+    <h3>🎵 Debut Album Released</h3>
+
+    <p>
+      தொலைவானம் திறந்ததோ — Sypriyan’s debut album featuring
+      8 original Tamil songs.
+    </p>
+
+    <a href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
+       target="_blank"
+       rel="noopener noreferrer">
+      Listen on Spotify →
+    </a>
+
+  </div>
+
+</div>
+
+      
     </div>
 
     <div class="timeline-item">
@@ -1301,7 +1352,7 @@ color:#ddd;
 
       <div class="timeline-content">
         <span class="timeline-date">2026</span>
-        <h3>Original Singles</h3>
+        <h3>🎤 Original Singles</h3>
         <p>
           A growing collection of original Tamil songs including
           Daughter In-Law Goal-u, இதயம் கொண்ட ரோபோ,
@@ -1315,7 +1366,7 @@ color:#ddd;
 
       <div class="timeline-content">
         <span class="timeline-date">2026</span>
-        <h3>Short Films & Cinematic Stories</h3>
+       <h3>🎬 Short Films & Cinematic Stories</h3>
         <p>
           Letty Production released original short films including
           நிகழ்வு, இறுகப்பற்று, இருளின் நிறமோ வெண்மை,
@@ -1335,7 +1386,7 @@ color:#ddd;
 
       <div class="timeline-content">
         <span class="timeline-date">July 2026</span>
-        <h3>Official Artist Website</h3>
+        <h3>🌐 Official Artist Website</h3>
         <p>
           Sypriyan.com was launched as the official home for music,
           videos, short films and new creative projects.
@@ -1348,11 +1399,11 @@ color:#ddd;
 
       <div class="timeline-content">
         <span class="timeline-date">Coming Soon</span>
-        <h3>More Music. More Stories.</h3>
-        <p>
-          New singles, videos, albums and cinematic projects are
-          currently in development.
-        </p>
+       <h3>🚀 The Journey Continues...</h3>
+       <p>
+  New music, cinematic stories and unforgettable creative experiences
+  are on the way.
+</p>
       </div>
     </div>
 
