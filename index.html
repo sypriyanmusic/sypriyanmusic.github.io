@@ -925,6 +925,126 @@ color:#ddd;
     text-align: center;
   }
 }
+.featured-projects {
+  background: #090909;
+}
+
+.projects-grid {
+  max-width: 1120px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.project-card {
+  position: relative;
+  min-height: 480px;
+  overflow: hidden;
+  border: 1px solid rgba(212,175,55,.35);
+  border-radius: 22px;
+  background: #111111;
+  box-shadow: 0 18px 45px rgba(0,0,0,.45);
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-9px);
+  border-color: rgba(212,175,55,.80);
+  box-shadow: 0 25px 55px rgba(0,0,0,.60);
+}
+
+.project-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.06);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.98) 5%,
+    rgba(0,0,0,.72) 48%,
+    rgba(0,0,0,.15) 100%
+  );
+}
+
+.project-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 30px;
+}
+
+.project-type {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #d4af37;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.project-content h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 27px;
+  line-height: 1.35;
+}
+
+.project-content p {
+  margin: 0 0 20px;
+  color: #d0d0d0;
+  line-height: 1.7;
+}
+
+.project-content a {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.project-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 95px;
+  background:
+    radial-gradient(circle at center, #2b2410, #080808 72%);
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: 440px;
+  }
+}
+  
   </style>
 </head>
 
@@ -941,6 +1061,7 @@ color:#ddd;
   <a href="#platforms">PLATFORMS</a>
      <a href="#stats">STATS</a>
      <a href="#timeline">TIMELINE</a>
+     <a href="#projects">PROJECTS</a>
   <a href="#contact">CONTACT</a>
 </div>
   </nav>
@@ -1410,6 +1531,110 @@ color:#ddd;
   </div>
 
 </section>  
+<section class="featured-projects" id="projects">
+
+  <h2 class="section-title">Featured Projects</h2>
+
+  <p class="section-subtitle">
+    Selected music and cinematic stories from Sypriyan and Letty Production.
+  </p>
+
+  <div class="projects-grid">
+
+    <!-- Debut Album -->
+    <article class="project-card">
+
+      <img
+        class="project-image"
+        src="album-cover.png"
+        alt="தொலைவானம் திறந்ததோ debut album cover">
+
+      <div class="project-overlay"></div>
+
+      <div class="project-content">
+        <span class="project-type">DEBUT ALBUM</span>
+
+        <h3>தொலைவானம் திறந்ததோ</h3>
+
+        <p>
+          Eight original Tamil songs shaped by emotion, memory and
+          cinematic storytelling.
+        </p>
+
+        <a
+          href="https://open.spotify.com/album/2SJXlLC4Dy79i7ePZNIfVt"
+          target="_blank"
+          rel="noopener noreferrer">
+          Listen Now →
+        </a>
+      </div>
+
+    </article>
+
+
+    <!-- Featured Song -->
+    <article class="project-card project-video">
+
+      <img
+        class="project-image"
+        src="hero.png"
+        alt="DHARMAN SKY IS OURS original song">
+
+      <div class="project-overlay"></div>
+
+      <div class="project-content">
+        <span class="project-type">ORIGINAL SONG</span>
+
+        <h3>DHARMAN – SKY IS OURS</h3>
+
+        <p>
+          An original cinematic anthem created under Letty Production.
+        </p>
+
+        <a
+          href="https://youtu.be/6SGceeawRt8"
+          target="_blank"
+          rel="noopener noreferrer">
+          Watch on YouTube →
+        </a>
+      </div>
+
+    </article>
+
+
+    <!-- Short Film -->
+    <article class="project-card">
+
+      <div class="project-placeholder">
+        🎬
+      </div>
+
+      <div class="project-overlay"></div>
+
+      <div class="project-content">
+        <span class="project-type">TAMIL SHORT FILM</span>
+
+        <h3>நிகழ்வு</h3>
+
+        <p>
+          An emotional Tamil short film presented by Letty Production.
+        </p>
+
+        <a
+          href="https://youtube.com/@sypriyanj3293"
+          target="_blank"
+          rel="noopener noreferrer">
+          Watch Short Films →
+        </a>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+  
   <section class="contact" id="contact">
     <h2 class="section-title">Connect</h2>
 
