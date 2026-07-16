@@ -1167,27 +1167,110 @@ display: block;
     color:#888;
     font-size:14px;
 }
-  
+  .menu-toggle {
+  display: none;
+  width: 44px;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid rgba(212,175,55,.4);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 2px;
+  background: #d4af37;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+@media (max-width: 900px) {
+  nav {
+    padding: 14px 5%;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 1002;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 12px 5% 20px;
+    background: rgba(5,5,5,.98);
+    border-bottom: 1px solid rgba(212,175,55,.3);
+    box-shadow: 0 18px 35px rgba(0,0,0,.45);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 14px 4px;
+    font-size: 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
   </style>
 </head>
 
 <body>
 
   <nav>
-    <a class="logo" href="#home">SYPRIYAN</a>
+  <a class="logo" href="#home">SYPRIYAN</a>
 
-   <div class="nav-links">
-  <a href="#about">ABOUT</a>
-  <a href="#music">MUSIC</a>
-  <a href="#catalog">DISCOGRAPHY</a>
-  <a href="#videos">VIDEOS</a>
-  <a href="#platforms">PLATFORMS</a>
-     <a href="#stats">STATS</a>
-     <a href="#timeline">TIMELINE</a>
-     <a href="#projects">PROJECTS</a>
-  <a href="#contact">CONTACT</a>
-</div>
-  </nav>
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#music">MUSIC</a>
+    <a href="#catalog">DISCOGRAPHY</a>
+    <a href="#videos">VIDEOS</a>
+    <a href="#platforms">PLATFORMS</a>
+    <a href="#stats">STATS</a>
+    <a href="#timeline">TIMELINE</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
 
 <header class="hero" id="home"></header>
 
@@ -1877,6 +1960,37 @@ YouTube
   window.addEventListener('load', updateActiveNav);
 </script>
 
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.nav-links');
+  const mobileNavLinks = document.querySelectorAll('.nav-links a');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      mobileNav.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+
+
+  
 </body>
 <footer class="site-footer">
 
