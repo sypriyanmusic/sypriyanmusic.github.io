@@ -1268,14 +1268,20 @@ display: block;
 }
 @media (max-width: 760px) {
   .hero {
-    min-height: 72vh;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    padding: 0;
+    background: #090909;
   }
 
   .hero::before {
-    background-size: auto 100%;
-    background-position: center top;
+    background-size: contain;
+    background-position: center center;
     background-repeat: no-repeat;
     background-color: #090909;
+    animation: heroFade 1.2s ease forwards;
+    transform: none;
   }
 }
     
