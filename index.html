@@ -400,13 +400,22 @@
 
 @media (max-width:760px){
 
-.hero{
+  .hero{
+    min-height:78vh;
     justify-content:center;
-    padding:0 30px;
-}
+    padding:0 20px;
+  }
 
-.hero-content{
+  .hero::before{
+    background-size:cover;
+    background-position:center top;
+    background-repeat:no-repeat;
+  }
+
+  .hero-content{
     text-align:center;
+  }
+
 }
 
 .hero-content h1{
@@ -1270,7 +1279,7 @@ display: block;
   .hero {
     min-height: 0;
     height: auto;
-aspect-ratio:16/9;
+
     padding: 0;
     background: #090909;
   }
