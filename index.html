@@ -1279,18 +1279,17 @@ display: block;
   .hero {
     min-height: 0;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     padding: 0;
     background: #090909;
   }
 
   .hero::before {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: #090909;
-    animation: heroFade 1.2s ease forwards;
-    transform: none;
+    background:
+      linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.32)),
+      url('hero.png') center center / contain no-repeat !important;
+    transform: none !important;
+    animation: heroFade 1.2s ease forwards !important;
   }
 }
     
