@@ -1266,7 +1266,18 @@ display: block;
     border-radius: 3px;
   }
 }
+@media (max-width: 760px) {
+  .hero {
+    min-height: 72vh;
+  }
 
+  .hero::before {
+    background-size: auto 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #090909;
+  }
+}
     
   </style>
 </head>
