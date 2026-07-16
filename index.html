@@ -62,11 +62,44 @@
     }
 
     .hero {
-    min-height: 100vh;
-    background:
-        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.45)),
-        url('hero.png')
-        center center / cover no-repeat;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #090909;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,0,0,.28), rgba(0,0,0,.42)),
+    url('hero.png') center center / cover no-repeat;
+  transform: scale(1.04);
+  opacity: 0;
+  animation:
+    heroFade 1.4s ease forwards,
+    heroZoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.04);
+  }
+
+  to {
+    transform: scale(1.10);
+  }
 }
 
     section {
@@ -293,9 +326,12 @@
       }
 
       .hero {
-        min-height: 65vh;
-        background-position: 32% center;
-      }
+  min-height: 65vh;
+}
+
+.hero::before {
+  background-position: 32% center;
+}
 
       section {
         padding: 70px 6%;
