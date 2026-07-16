@@ -1083,7 +1083,14 @@ display: block;
     min-height: 540px;
   }
 }
-  
+
+    .nav-links a.active {
+  color: #d4af37;
+}
+
+.nav-links a {
+  transition: color .2s ease;
+}
   </style>
 </head>
 
@@ -1764,5 +1771,34 @@ YouTube
 
   observer.observe(statsSection);
 </script>
+
+<script>
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const updateActiveNav = () => {
+    let currentSection = 'home';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
+
+      if (window.scrollY >= sectionTop) {
+        currentSection = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+
+      if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.add('active');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', updateActiveNav);
+  window.addEventListener('load', updateActiveNav);
+</script>
+
 </body>
 </html>
