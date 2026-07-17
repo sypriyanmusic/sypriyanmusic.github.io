@@ -1697,7 +1697,7 @@ A collection of original Tamil music and cinematic storytelling.
   <div class="stats-grid">
 
     <div class="stat-card">
-     <span class="stat-number counter" data-target="593">0</span>
+<span class="stat-number" data-target="593">0</span>
       <span class="stat-plus">+</span>
       <p>Spotify Streams</p>
     </div>
@@ -2222,46 +2222,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const counter = document.querySelector(".counter");
-
-  if (!counter) return;
-
-  const target = Number(counter.dataset.target);
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-
-      observer.unobserve(counter);
-
-      let current = 0;
-      const duration = 1500;
-      const increment = target / (duration / 16);
-
-      const timer = setInterval(() => {
-        current += increment;
-
-        if (current >= target) {
-          counter.textContent = target.toLocaleString();
-          clearInterval(timer);
-        } else {
-          counter.textContent = Math.floor(current).toLocaleString();
-        }
-
-      }, 16);
-
-    });
-  }, {
-    threshold: 0.5
-  });
-
-  observer.observe(counter);
-
-});
-</script>
 
 
 
