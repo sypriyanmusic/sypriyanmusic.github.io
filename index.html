@@ -1297,7 +1297,29 @@ display: block;
     display: none !important;
   }
 }
-    
+    .reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+  
+  
   </style>
 </head>
 
@@ -2046,7 +2068,36 @@ YouTube
   });
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const revealItems = document.querySelectorAll(
+      'section:not(.hero), .album-card, .catalog-panel, .platform-card, .stat-card, .timeline-content, .project-card'
+    );
 
+    revealItems.forEach(item => {
+      item.classList.add('reveal');
+    });
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    revealItems.forEach(item => {
+      revealObserver.observe(item);
+    });
+  });
+</script>
   
 </body>
 <footer class="site-footer">
