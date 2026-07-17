@@ -1472,7 +1472,20 @@ nav a.active::after {
         bottom:18px;
     }
 }
-  
+
+    /* Fix menu icon visibility */
+
+@media (min-width:761px){
+  .menu-toggle{
+    display:none !important;
+  }
+}
+
+@media (max-width:760px){
+  .menu-toggle{
+    display:flex !important;
+  }
+}
   
   
   </style>
