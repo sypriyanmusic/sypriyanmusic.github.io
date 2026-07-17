@@ -1275,27 +1275,27 @@ display: block;
     border-radius: 3px;
   }
 }
-@media (max-width: 760px) {
-  .hero {
-    min-height: 0;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    padding: 0;
-    background: #090909;
+@media (max-width:760px){
+
+  .hero{
+    min-height:0;
+    height:auto;
+    aspect-ratio:9 / 16;
+    padding:0;
+    background:#090909;
   }
 
-  .hero::before {
-  background:
-    linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.32)),
-    url('hero-mobile.png') center center / contain no-repeat !important;
-  transform: none !important;
-  animation: heroFade 1.2s ease forwards !important;
-}
-}
-    @media (min-width: 901px) {
-  .menu-toggle {
-    display: none !important;
+  .hero::before{
+    background:
+      url('hero-mobile.png') center top / contain no-repeat !important;
+    transform:none !important;
+    animation:heroFade 1.2s ease forwards !important;
   }
+
+  .hero-content{
+    display:none;
+  }
+
 }
     .reveal {
   opacity: 0;
