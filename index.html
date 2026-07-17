@@ -1318,7 +1318,39 @@ display: block;
   }
 }
 
-  
+  .album-card,
+.catalog-panel,
+.platform-card,
+.stat-card,
+.timeline-content,
+.project-card {
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+.album-card:hover,
+.catalog-panel:hover,
+.platform-card:hover,
+.stat-card:hover,
+.timeline-content:hover,
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,.75);
+  box-shadow: 0 22px 48px rgba(0,0,0,.5);
+}
+
+@media (hover: none) {
+  .album-card:hover,
+  .catalog-panel:hover,
+  .platform-card:hover,
+  .stat-card:hover,
+  .timeline-content:hover,
+  .project-card:hover {
+    transform: none;
+  }
+}
   
   </style>
 </head>
