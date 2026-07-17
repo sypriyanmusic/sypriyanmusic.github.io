@@ -2011,43 +2011,7 @@ YouTube
   <footer>
     © 2026 Sypriyan · Letty Production · All Rights Reserved
   </footer>
-<script>
-  const counters = document.querySelectorAll('.stat-number');
 
-  const animateCounters = () => {
-    counters.forEach(counter => {
-      const target = Number(counter.dataset.target);
-      let current = 0;
-      const step = Math.max(1, Math.ceil(target / 60));
-
-      const updateCounter = () => {
-        current += step;
-
-        if (current >= target) {
-          counter.textContent = target;
-        } else {
-          counter.textContent = current;
-          requestAnimationFrame(updateCounter);
-        }
-      };
-
-      updateCounter();
-    });
-  };
-
-  const statsSection = document.querySelector('#stats');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounters();
-        observer.unobserve(statsSection);
-      }
-    });
-  }, { threshold: 0.35 });
-
-  observer.observe(statsSection);
-</script>
 
 <script>
   const sections = document.querySelectorAll('section[id], header[id]');
