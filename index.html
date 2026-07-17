@@ -2100,36 +2100,7 @@ YouTube
     });
   });
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
 
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-links a");
-
-  window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
-    });
-
-  });
-
-});
-</script>
   <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -2185,52 +2156,54 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const statsSection = document.querySelector("#stats");
+  const statsSection = document.getElementById("stats");
   const counters = document.querySelectorAll(".stat-number");
 
   if (!statsSection || counters.length === 0) return;
 
-  const animateCounters = () => {
+  let started = false;
+
+  function animateCounters() {
+
+    if (started) return;
+    started = true;
 
     counters.forEach(counter => {
 
-      const target = Number(counter.dataset.target);
-      const duration = 1600;
-      const startTime = performance.now();
+      const target = parseInt(counter.dataset.target, 10);
+      let current = 0;
 
-      const updateCounter = (currentTime) => {
+      const increment = Math.max(1, Math.ceil(target / 100));
 
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
+      const timer = setInterval(() => {
 
-        const easedProgress = 1 - Math.pow(1 - progress, 3);
-        const currentValue = Math.floor(target * easedProgress);
+        current += increment;
 
-        counter.textContent = currentValue.toLocaleString();
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCounter);
-        } else {
+        if (current >= target) {
           counter.textContent = target.toLocaleString();
+          clearInterval(timer);
+        } else {
+          counter.textContent = current.toLocaleString();
         }
-      };
 
-      requestAnimationFrame(updateCounter);
+      }, 20);
+
     });
-  };
 
-  const statsObserver = new IntersectionObserver(entries => {
+  }
+
+  const observer = new IntersectionObserver((entries) => {
 
     if (entries[0].isIntersecting) {
       animateCounters();
-      statsObserver.disconnect();
+      observer.disconnect();
     }
 
   }, {
-    threshold: 0.3
+    threshold: 0.35
   });
 
-  statsObserver.observe(statsSection);
+  observer.observe(statsSection);
 
 });
 </script>
