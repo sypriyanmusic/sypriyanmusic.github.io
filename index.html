@@ -102,7 +102,7 @@
   inset: 0;
   background:
     linear-gradient(rgba(0,0,0,.28), rgba(0,0,0,.42)),
-     url("hero.png") center top / cover no-repeat;
+     url("hero-desktop.png") center top / cover no-repeat;
   transform: scale(1.04);
   opacity: 0;
   animation:
@@ -401,26 +401,26 @@
 @media (max-width:760px){
 
   .hero{
-    min-height:78vh;
+    min-height:100vh;
     justify-content:center;
-    padding:0 20px;
+    padding:0;
   }
 
   .hero::before{
+    background-image:url("hero-mobile.png");
     background-size:cover;
-    background-position:center top;
+    background-position:center center;
     background-repeat:no-repeat;
+    transform:none;
   }
 
   .hero-content{
     text-align:center;
   }
 
-}
-
-.hero-content h1{
+  .hero-content h1{
     font-size:52px;
-}
+  }
 
 }
   .social-links {
