@@ -40,6 +40,13 @@
 <meta name="twitter:image" content="https://sypriyan.com/hero-desktop.png">
 
 <meta name="theme-color" content="#090909">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SYPRIYAN">
+<meta name="mobile-web-app-capable" content="yes">
+
 
   
   <style>
@@ -1712,6 +1719,10 @@ nav a.active::after {
 
 
   
+
+<style id="pwa-styles">
+#installAppBtn{display:none;position:fixed;right:18px;bottom:82px;z-index:1200;align-items:center;gap:9px;padding:13px 19px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:linear-gradient(135deg,#e4c65b,#b68a16);color:#090909;font-weight:800;letter-spacing:.4px;box-shadow:0 12px 35px rgba(0,0,0,.5);cursor:pointer}#installAppBtn.show{display:inline-flex}#installAppBtn:hover{transform:translateY(-2px)}#installAppBtn img{width:24px;height:24px;border-radius:6px}.pwa-toast{position:fixed;left:50%;bottom:24px;z-index:1300;transform:translate(-50%,120px);padding:12px 18px;border:1px solid rgba(212,175,55,.45);border-radius:999px;background:#151515;color:#fff;box-shadow:0 12px 35px #000;transition:.35s}.pwa-toast.show{transform:translate(-50%,0)}@media(max-width:760px){#installAppBtn{right:14px;bottom:72px;padding:12px 16px}}
+</style>
 </head>
 
 <body>
@@ -2329,7 +2340,7 @@ A collection of original Tamil music and cinematic storytelling.
 
       <img
         class="project-image"
-        src="DHARMAN – SKY IS OURS.png"
+        src="dharman-sky-is-ours.png"
         alt="DHARMAN SKY IS OURS original song">
 
       <div class="project-overlay"></div>
@@ -2709,6 +2720,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
 
+
+<button id="installAppBtn" type="button" aria-label="Install SYPRIYAN app"><img src="icon-192.png" alt="">Install SYPRIYAN</button>
+<div id="pwaToast" class="pwa-toast" role="status" aria-live="polite"></div>
+<script id="pwa-script">
+let deferredInstallPrompt;
+const installBtn=document.getElementById('installAppBtn');
+const toast=document.getElementById('pwaToast');
+function showToast(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3000);}
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredInstallPrompt=event;installBtn.classList.add('show');});
+installBtn.addEventListener('click',async()=>{if(!deferredInstallPrompt){showToast('Open your browser menu and choose “Add to Home screen”.');return;}deferredInstallPrompt.prompt();const choice=await deferredInstallPrompt.userChoice;if(choice.outcome==='accepted')showToast('SYPRIYAN is being installed.');deferredInstallPrompt=null;installBtn.classList.remove('show');});
+window.addEventListener('appinstalled',()=>{installBtn.classList.remove('show');showToast('SYPRIYAN installed successfully.');});
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(console.error));}
+</script>
 </body>
 
 
