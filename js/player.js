@@ -351,10 +351,17 @@ for (let index = 0; index < lyricLines.length; index += 1) {
       oldLine?.classList.remove("is-active");
       newLine?.classList.add("is-active");
 
-      newLine?.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
+      if (newLine && lyricsContent) {
+    const targetTop =
+        newLine.offsetTop -
+        lyricsContent.clientHeight / 2 +
+        newLine.clientHeight / 2;
+
+    lyricsContent.scrollTo({
+        top: targetTop,
+        behavior: "smooth"
+    });
+}
 
       activeLyricIndex = newLyricIndex;
     }
