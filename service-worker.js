@@ -1,28 +1,28 @@
-const CACHE_NAME = 'sypriyan-v1';
+const CACHE_NAME = 'sypriyan-v3';
 const APP_SHELL = [
   "./",
-  "./album-cover.png",
-  "./amazon.png",
-  "./apple.png",
-  "./dharman-sky-is-ours.png",
-  "./favicon.png",
+  "./images/album-cover.png",
+  "./images/amazon.png",
+  "./images/apple.png",
+"./images/dharman-sky-is-ours.png",
+"./images/favicon.png",
   "./googlee11d77b56efe7208.html",
-  "./hero-desktop.png",
-  "./hero-mobile.png",
-  "./hero.png",
-  "./icon-192.png",
-  "./icon-512.png",
-  "./icon-maskable-512.png",
+ "./images/hero-desktop.png",
+"./images/hero-mobile.png",
+"./images/hero.png",
+"./images/icon-192.png",
+"./images/icon-512.png",
+  "./images/icon-maskable-512.png",
   "./index.html",
-  "./kanave-kavithaiye.jpg",
+  "./images/kanave-kavithaiye.jpg",
   "./manifest.json",
-  "./nigalvu.jpg",
+"./images/nigalvu.jpg",
   "./offline.html",
-  "./profile.png",
+  "./images/profile.png",
   "./robots.txt",
   "./sitemap.xml",
-  "./spotify.png",
-  "./youtube.png"
+ "./images/spotify.png",
+"./images/youtube.png"
 ];
 
 self.addEventListener('install', event => {
@@ -37,11 +37,43 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+
+  const request = event.request;
+
+  // Never cache streamed/partial audio requests.
+  if (
+    request.headers.has('range') ||
+    request.destination === 'audio' ||
+    request.url.includes('/songs/')
+  ) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
   event.respondWith(
-    fetch(event.request).then(response => {
-      const copy = response.clone();
-      caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
-      return response;
-    }).catch(() => caches.match(event.request).then(cached => cached || (event.request.mode === 'navigate' ? caches.match('./offline.html') : Response.error())))
+    fetch(request)
+      .then(response => {
+        // Only cache complete successful responses.
+        if (response.ok && response.status === 200) {
+          const copy = response.clone();
+
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(request, copy);
+          });
+        }
+
+        return response;
+      })
+      .catch(() =>
+        caches.match(request).then(cached => {
+          if (cached) return cached;
+
+          if (request.mode === 'navigate') {
+            return caches.match('./offline.html');
+          }
+
+          return Response.error();
+        })
+      )
   );
 });

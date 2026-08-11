@@ -1,0 +1,1001 @@
+/* ==================================================
+   SYPRIYAN GOLD EDITION MUSIC PLAYER
+   ================================================== */
+
+.gold-player {
+  width: min(1180px, calc(100% - 32px));
+  margin: 46px auto 70px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 30px;
+  position: relative;
+  overflow: hidden;
+
+  color: #ffffff;
+  background:
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.16), transparent 34%),
+    linear-gradient(145deg, #171717, #080808 68%);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 26px;
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.58),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.gold-player::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 15%,
+    rgba(255, 215, 100, 0.05) 48%,
+    transparent 75%
+  );
+}
+
+.gold-player__art,
+.gold-player__main,
+.gold-player__playlist {
+  position: relative;
+  z-index: 1;
+}
+
+.gold-player__art {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.gold-player__art img {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 1px solid rgba(230, 190, 58, 0.65);
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.62),
+    0 0 35px rgba(212, 175, 55, 0.12);
+}
+
+.gold-player__main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gold-player__label {
+  margin: 0 0 10px;
+  color: #d9af35;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+}
+
+.gold-player__main h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.gold-player__artist {
+  margin: 10px 0 24px;
+  color: #d2d2d2;
+  font-size: 1rem;
+}
+
+.gold-player__controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.gold-player__controls button {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  color: #f3cd58;
+  background: #151515;
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  border-radius: 50%;
+  font-size: 1.15rem;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.gold-player__controls button:hover {
+  color: #090909;
+  background: linear-gradient(135deg, #f5d56d, #c99718);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(212, 175, 55, 0.27);
+}
+
+#playPauseTrack {
+  width: 62px;
+  height: 62px;
+  color: #090909;
+  background: linear-gradient(135deg, #f7da78, #c69212);
+  font-size: 1.45rem;
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.28);
+}
+
+#trackProgress {
+  width: 100%;
+  height: 6px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #d5a928;
+}
+
+.gold-player__time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  color: #a9a9a9;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.gold-player__playlist {
+  grid-column: 1 / -1;
+  padding-top: 24px;
+  border-top: 1px solid rgba(212, 175, 55, 0.24);
+}
+
+.gold-player__playlist h4 {
+  margin: 0 0 16px;
+  color: #e5bd43;
+  font-size: 1.18rem;
+  letter-spacing: 0.04em;
+}
+
+#trackList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gold-player__track {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-align: left;
+
+  color: #e5e5e5;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 13px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gold-player__track:hover {
+  background: rgba(212, 175, 55, 0.09);
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateX(3px);
+}
+
+.gold-player__track span {
+  color: #b79738;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.gold-player__track strong {
+  min-width: 0;
+  overflow: hidden;
+  color: inherit;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gold-player__track.is-active {
+  color: #fff2bd;
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.2),
+    rgba(212, 175, 55, 0.07)
+  );
+  border-color: #cfa62c;
+  box-shadow: inset 3px 0 0 #e4bd45;
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+  .gold-player {
+    grid-template-columns: 210px minmax(0, 1fr);
+    padding: 24px;
+    gap: 24px;
+  }
+
+  #trackList {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Phone */
+
+@media (max-width: 620px) {
+  .gold-player {
+    width: calc(100% - 22px);
+    margin: 28px auto 48px;
+    padding: 18px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    border-radius: 20px;
+  }
+
+  .gold-player__art img {
+    max-width: 245px;
+  }
+
+  .gold-player__main {
+    text-align: center;
+  }
+
+  .gold-player__controls {
+    justify-content: center;
+  }
+
+  .gold-player__playlist {
+    grid-column: 1;
+    padding-top: 20px;
+  }
+
+  .gold-player__track {
+    padding: 12px;
+  }
+}
+@keyframes sypriyanAlbumPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 22px 45px rgba(0, 0, 0, 0.62),
+      0 0 28px rgba(212, 175, 55, 0.14);
+  }
+
+  50% {
+    transform: scale(1.025);
+    box-shadow:
+      0 26px 55px rgba(0, 0, 0, 0.68),
+      0 0 48px rgba(231, 187, 50, 0.42);
+  }
+}
+
+.gold-player__art img.is-playing {
+  animation: sypriyanAlbumPulse 3.2s ease-in-out infinite;
+}
+
+/* Rotating vinyl behind album cover */
+
+/* Clearly visible vinyl behind the album cover */
+
+.gold-player__art {
+  overflow: visible;
+}
+
+.gold-player__vinyl-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  overflow: visible;
+}
+
+.gold-player__vinyl-wrap img {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+
+.gold-player__vinyl {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: -55px;
+  width: 92%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+
+  transform: translateY(-50%) rotate(0deg);
+
+  background:
+    radial-gradient(
+      circle at center,
+      #e0b633 0 6%,
+      #090909 6% 14%,
+      #d1a52b 14% 16%,
+      #070707 16% 29%,
+      #171717 29% 31%,
+      #060606 31% 43%,
+      #181818 43% 45%,
+      #050505 45% 100%
+    );
+
+  box-shadow:
+    14px 18px 38px rgba(0, 0, 0, 0.72),
+    0 0 24px rgba(212, 175, 55, 0.22);
+
+  transition:
+    right 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+.gold-player__vinyl::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      transparent 0 6px,
+      rgba(255, 255, 255, 0.045) 7px 8px
+    );
+}
+
+@keyframes sypriyanVinylSpin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.gold-player__vinyl.is-playing {
+  right: -70px;
+  animation: sypriyanVinylSpin 4.5s linear infinite;
+
+  box-shadow:
+    18px 22px 46px rgba(0, 0, 0, 0.78),
+    0 0 42px rgba(212, 175, 55, 0.4);
+}
+
+@media (max-width: 620px) {
+  .gold-player__vinyl {
+    right: -55px;
+  }
+
+  .gold-player__vinyl.is-playing {
+    right: -65px;
+  }
+}
+
+.gold-player__vinyl-wrap img {
+  position: relative;
+  z-index: 2;
+}
+
+.gold-player__vinyl {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: -42px;
+  width: 88%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background:
+    radial-gradient(circle at center,
+      #d8ad31 0 7%,
+      #111 7% 15%,
+      #d8ad31 15% 17%,
+      #080808 17% 28%,
+      #151515 28% 30%,
+      #070707 30% 42%,
+      #161616 42% 44%,
+      #070707 44% 100%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.65),
+    0 0 24px rgba(212, 175, 55, 0.18);
+}
+
+.gold-player__vinyl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(
+      circle at center,
+      transparent 0 7px,
+      rgba(255, 255, 255, 0.035) 8px 9px
+    );
+}
+
+@keyframes sypriyanVinylSpin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.gold-player__vinyl.is-playing {
+  animation: sypriyanVinylSpin 5s linear infinite;
+}
+
+@media (max-width: 620px) {
+  .gold-player__vinyl {
+    right: -28px;
+  }
+}
+
+
+
+
+
+/* Gold animated equalizer */
+
+.gold-player__status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.gold-player__status .gold-player__label {
+  margin: 0;
+}
+
+.gold-player__equalizer {
+  height: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.gold-player__equalizer span {
+  width: 3px;
+  height: 5px;
+  display: block;
+  background: linear-gradient(to top, #b98812, #f7d76d);
+  border-radius: 3px;
+  opacity: 0.55;
+}
+
+.gold-player__equalizer.is-playing span {
+  opacity: 1;
+  animation: sypriyanEqualizer 0.75s ease-in-out infinite alternate;
+}
+
+.gold-player__equalizer.is-playing span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.gold-player__equalizer.is-playing span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.gold-player__equalizer.is-playing span:nth-child(4) {
+  animation-delay: 0.48s;
+}
+
+@keyframes sypriyanEqualizer {
+  0% {
+    height: 5px;
+  }
+
+  50% {
+    height: 18px;
+  }
+
+  100% {
+    height: 9px;
+  }
+}
+
+@media (max-width: 620px) {
+  .gold-player__status {
+    justify-content: center;
+  }
+}
+
+
+/* Pulsing golden glow while music is playing */
+
+@keyframes sypriyanGoldenGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 22px 45px rgba(0, 0, 0, 0.62),
+      0 0 24px rgba(212, 175, 55, 0.18),
+      0 0 0 rgba(212, 175, 55, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 28px 58px rgba(0, 0, 0, 0.72),
+      0 0 46px rgba(235, 191, 53, 0.48),
+      0 0 85px rgba(212, 175, 55, 0.22);
+  }
+}
+
+.gold-player__art img.is-playing {
+  animation:
+    sypriyanAlbumPulse 3.2s ease-in-out infinite,
+    sypriyanGoldenGlow 2.4s ease-in-out infinite;
+}
+/* ==============================
+   SYPRIYAN FLOATING MINI PLAYER
+   ============================== */
+
+.mini-player {
+  position: fixed;
+  right: 22px;
+  bottom: 85px;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px) scale(0.97);
+  pointer-events: none;
+
+transition:
+    opacity .3s ease,
+    visibility .3s ease,
+    transform .3s ease;
+
+  width: min(430px, calc(100% - 32px));
+  padding: 11px 14px;
+
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 38px 44px 38px;
+  align-items: center;
+  gap: 10px;
+
+  color: #ffffff;
+  background: linear-gradient(
+    145deg,
+    rgba(28, 25, 18, 0.97),
+    rgba(7, 7, 7, 0.98)
+  );
+
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  border-radius: 18px;
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.58),
+    0 0 28px rgba(212, 175, 55, 0.12);
+
+  backdrop-filter: blur(14px);
+}
+
+.mini-player__cover {
+  width: 48px;
+  height: 48px;
+  display: block;
+  object-fit: cover;
+
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+}
+
+.mini-player__info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mini-player__info strong {
+  overflow: hidden;
+  color: #fff3c1;
+  font-size: 0.88rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mini-player__info span {
+  color: #aaaaaa;
+  font-size: 0.72rem;
+}
+
+.mini-player button {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+  color: #e6be45;
+  background: #111111;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.mini-player button:hover {
+  transform: translateY(-2px);
+  background: rgba(212, 175, 55, 0.15);
+}
+
+#miniPlayPauseTrack {
+  width: 44px;
+  height: 44px;
+  color: #080808;
+  background: linear-gradient(135deg, #f2d067, #c99214);
+}
+
+@media (max-width: 620px) {
+  .mini-player {
+    right: 10px;
+    bottom: 70px;
+    width: calc(100% - 20px);
+    padding: 9px 10px;
+
+    grid-template-columns:
+      44px minmax(0, 1fr) 34px 40px 34px;
+  }
+
+  .mini-player__cover {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mini-player button {
+    width: 34px;
+    height: 34px;
+  }
+
+  #miniPlayPauseTrack {
+    width: 40px;
+    height: 40px;
+  }
+}
+.mini-player.is-visible {
+    opacity: 1;
+    visibility: visible;
+   transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* =========================
+   SYPRIYAN LYRICS PANEL
+   ========================= */
+
+.lyrics-panel {
+  grid-column: 1 / -1;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  margin-top: 0;
+  padding: 0 22px;
+
+  color: #ffffff;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25, 22, 15, 0.98),
+      rgba(7, 7, 7, 0.98)
+    );
+
+  border: 1px solid transparent;
+  border-radius: 18px;
+
+  transform: translateY(-10px);
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    margin-top 0.3s ease,
+    padding 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.lyrics-panel.show {
+  max-height: 520px;
+  opacity: 1;
+
+  margin-top: 22px;
+  padding: 20px 22px;
+
+  border-color: rgba(212, 175, 55, 0.45);
+  transform: translateY(0);
+}
+
+.lyrics-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.lyrics-header h3 {
+  margin: 0;
+  color: #e5bd43;
+  font-size: 1.2rem;
+}
+
+#closeLyrics {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  cursor: pointer;
+  color: #e5bd43;
+  background: #111111;
+
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 50%;
+}
+
+#closeLyrics:hover {
+  color: #090909;
+  background: linear-gradient(135deg, #f2d067, #c99214);
+}
+
+#lyricsContent {
+  max-height: 380px;
+  overflow-y: auto;
+
+  margin: 0;
+  padding-right: 10px;
+
+  color: #f2f2f2;
+  font-family: inherit;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+#lyricsContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+#lyricsContent::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.5);
+  border-radius: 10px;
+}
+
+#lyricsBtn {
+  width: auto;
+  min-width: 92px;
+  padding: 0 14px;
+
+  border-radius: 24px;
+  font-size: 0.9rem;
+  gap: 6px;
+}
+
+@media (max-width: 620px) {
+  .lyrics-panel.show {
+    max-height: 460px;
+    padding: 18px;
+  }
+
+  #lyricsContent {
+    max-height: 330px;
+    font-size: 0.98rem;
+  }
+}
+
+.lyric-line {
+  display: block;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+
+  color: #f2f2f2;
+  line-height: 1.8;
+  border-radius: 10px;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.lyric-line.is-active {
+  color: #ffe58a;
+  background: rgba(212, 175, 55, 0.14);
+  transform: translateX(6px);
+  box-shadow: inset 3px 0 0 #e3b936;
+}
+/* =========================
+   MOBILE POLISH
+   ========================= */
+
+@media (max-width: 620px) {
+
+  .gold-player {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .gold-player__vinyl-wrap {
+    max-width: 230px;
+    margin: 0 auto;
+  }
+
+  .gold-player__main h3 {
+    font-size: 1.35rem;
+    line-height: 1.4;
+  }
+
+  .gold-player__artist {
+    margin: 8px 0 18px;
+  }
+
+  .gold-player__controls {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .gold-player__controls button {
+    width: 44px;
+    height: 44px;
+  }
+
+  #playPauseTrack {
+    width: 56px;
+    height: 56px;
+  }
+
+  #lyricsBtn {
+    min-width: 88px;
+    padding: 0 12px;
+    font-size: 0.84rem;
+  }
+
+  #trackList {
+    gap: 8px;
+  }
+
+  .gold-player__track {
+    padding: 11px;
+    border-radius: 11px;
+  }
+
+  .gold-player__track strong {
+    font-size: 0.9rem;
+  }
+
+  .lyrics-panel.show {
+    margin-top: 16px;
+    padding: 16px;
+  }
+
+  #lyricsContent {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .lyric-line {
+    padding: 7px 9px;
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 620px) {
+
+  #lyricsContent {
+    max-height: 360px;
+    overflow-y: auto;
+
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  .lyric-line {
+    padding: 6px 8px;
+    margin-bottom: 3px;
+  }
+
+  .lyric-line.is-active {
+    font-size: 0.94rem;
+  }
+}
+#lyricsContent {
+  max-height: 360px;
+  overflow-y: auto;
+
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.lyric-line {
+  padding: 5px 7px;
+  margin-bottom: 2px;
+}
+
+.lyric-line.is-active {
+  font-size: 0.82rem;
+}
+.gold-player__equalizer span {
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.45);
+  transition:
+    height 0.08s linear,
+    opacity 0.08s linear,
+    box-shadow 0.08s linear;
+}
+
+.gold-player__equalizer.is-playing span {
+  box-shadow:
+    0 0 7px rgba(212, 175, 55, 0.65),
+    0 0 14px rgba(212, 175, 55, 0.25);
+}
+
+/* =========================
+   VINYL PREMIUM POLISH
+   ========================= */
+
+.gold-player__vinyl::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24%;
+  aspect-ratio: 1 / 1;
+
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #050505 0 10%,
+      #e2b72f 11% 38%,
+      #8f6a0c 39% 45%,
+      #111 46% 100%
+    );
+
+  box-shadow:
+    0 0 0 2px rgba(212, 175, 55, 0.22),
+    0 0 18px rgba(212, 175, 55, 0.25);
+}
+
+.gold-player__vinyl-wrap img {
+  transition:
+    filter 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.gold-player__vinyl-wrap img.is-playing {
+  filter:
+    brightness(1.04)
+    saturate(1.06);
+}
