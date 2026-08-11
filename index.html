@@ -2733,6 +2733,9 @@ installBtn.addEventListener('click',async()=>{if(!deferredInstallPrompt){showToa
 window.addEventListener('appinstalled',()=>{installBtn.classList.remove('show');showToast('SYPRIYAN installed successfully.');});
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(console.error));}
 </script>
+
+  <script src="js/player.js"></script>
+<script src="js/visualizer.js"></script>
 </body>
 
 
